@@ -1,5 +1,4 @@
 import getProjects from "../../lib/projects";
-import getProject from "../../lib/projects";
 
 export default function Project({ projectData }) {
   const project = projectData[0].fields;
@@ -16,7 +15,7 @@ export default function Project({ projectData }) {
 }
 
 export async function getStaticProps({ params }) {
-  const projects = await getProject();
+  const projects = await getProjects();
   const projectData = projects.filter(function (project) {
     return project.fields.Slug === params.id;
   });
